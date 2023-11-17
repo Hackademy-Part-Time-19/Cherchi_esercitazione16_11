@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: black">
+    <script>
+      let contoCorrente = 2500;
+      let operazione;
+
+      while (operazione != 4) {
+        operazione = parseInt(
+          prompt(
+            "Buonasera, benvenuto allo sportello automatico.\n\nPremi 1 per fare un bonifico.\n\nPremi 2 per fare un prelievo.\n\nPremi 3 per vedere il saldo conto.\n\nPremi 4 per uscire. "
+          )
+        );
+
+        let importo;
+        switch (operazione) {
+          case 1:
+            importo = parseInt(prompt("Inserisci l'importo desiderato: "));
+
+            if (contoCorrente - importo >= 0) {
+              let destinatario = prompt("Inserisci l'IBAN del destinatario: ");
+              contoCorrente = contoCorrente - importo;
+
+              alert(
+                "Il bonifico è andato a buon fine a queste coordinate: " +
+                  destinatario +
+                  "torna presto a trovarci."
+              );
+
+              alert("Il saldo attuale è adesso di " + contoCorrente + " euro.");
+            } else {
+              alert("Saldo insufficiente.");
+            }
+
+            break;
+
+          case 2:
+            importo = parseInt(prompt("Inserisci l'importo desiderato: "));
+            if (contoCorrente - importo >= 0) {
+              contoCorrente = contoCorrente - importo;
+
+              alert(
+                "Il prelievo è andato a buon fine, torna presto a trovarci."
+              );
+            } else {
+              alert("Saldo insufficiente.");
+            }
+
+            break;
+
+          case 3:
+            alert("Il tuo saldo attuale è di: " + contoCorrente + " euro.");
+
+            break;
+
+          case 4:
+            alert(
+              "Grazie per aver scelto la nostra banca, torna presto a trovarci."
+            );
+
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>
